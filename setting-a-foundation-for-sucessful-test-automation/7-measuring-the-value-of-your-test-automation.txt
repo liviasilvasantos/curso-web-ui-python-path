@@ -1,0 +1,39 @@
+Many automation projects fail due to unrealistic expectations. To avoid this, it’s best to identify expectations early and communicate these expectations to the entire team.
+
+Reaping the benefits of test automation does not happen overnight, and it really helps if everyone understands the end goal and how to measure the progress towards it.
+
+In this chapter, we’ll discuss a few common benefits of test automation and how to measure for the return on investment (ROI).
+#
+Shortened regression testing time
+
+One key benefit to test automation is the reduced time it takes to execute regression testing. Before starting your test automation initiative, make a note of how long it takes to execute regression manually.
+
+As your test automation matures, you should see that regression testing takes a lot less time to run. However when you first begin automating tests, you won’t have much covered and there will be quite a bit of time spent learning the hard lessons of automating tests properly and updating your suite to be more robust. Know that this will eventually pay off as you eventually see hundreds of regression tests run in minutes as opposed to weeks.
+
+To ensure that the addition of tests does not necessarily add to the overall execution time, you can even set a service level agreement (SLA) for the max amount of time the entire suite of automated tests can take to execute. This will force your engineers to explore smarter options to make tests faster.
+#
+Fast and frequent feedback
+
+Another return on your investment is fast and frequent feedback. By automating your regression tests, the team is able to receive feedback as often as needed.
+
+The improvement of this is something you can track as part of the progress of your initiative. Perhaps, you’re only able to run the tests and gather results once every few days initially because of the manual intervention required. Eventually, however, you should be able to run the tests automatically any time a developer checks in code.
+
+The faster the feedback, the less expensive it is to resolve any issues found. This indeed is a great return on investment.
+#
+Faster development time
+
+Monitor your team’s level of trust in the automated tests. Do they believe that a failed test actually means that there is a problem? This is a question that you can survey your team on during regular retrospectives.
+
+This is an important return on investment because it allows your developers to move a lot faster – knowing that they have the tests to keep them from messing up too badly. This improved health of the tests also means you should see a reduction in the time spent triaging brittle tests.
+#
+Scalability
+
+The ability to scale automated tests to run across different environments, browsers, and devices is certainly a valuable return on investment. If this is something that is important to your business strategy, track the ability of your tests to do this. This may be painful at first, and you may only be able to tackle one of these at a time, but it’s certainly something you can measure the progress toward.
+#
+Summary
+
+As you can see, test automation is not something to be taken lightly. It is not a side project, but rather a software development project that must be treated as such.
+
+There is a lot to consider before beginning a test automation initiative - such as defining a goal and strategy, ensuring that your organization’s culture supports this strategy, developing your applications in a manner that makes test automation easier, choosing the proper tooling based on your team and business goals, looking ahead to where you want to eventually be and developing your test automation to support that vision, scaling your test automation beyond just running locally, and setting realistic expectations on the return on investment that you’ll receive.
+
+Hopefully this course has helped bring many of considerations to light and will set you up for test automation success.

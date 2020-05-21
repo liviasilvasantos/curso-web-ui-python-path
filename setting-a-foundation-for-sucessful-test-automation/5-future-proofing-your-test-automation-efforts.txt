@@ -1,0 +1,35 @@
+Without a clear strategy in mind, many teams make the mistake of automating their tests for their current situation. Perhaps you’re just starting out and you have a dozen or so tests that run locally. You don’t see the issues that your poorly written test code can surface.
+
+However, once you’re up to 100 tests, all of a sudden, it’s very clear how faulty your design decisions were. Now you have to find time to refactor your test automation project.
+
+In this chapter, I’ll share with you some design considerations that you can keep in mind early in your automation journey. Knowing these things up front will help you future-proof your test automation project and save you lots of time and headache.
+#
+Running in parallel
+
+When you only have a handful of automated tests, running them sequentially doesn’t seem like a big deal. However, as the number of automated tests grows, the longer it will take for your entire test suite to complete. A solution to this is to run the tests in parallel. However, this is not as simple as flipping a switch. Your tests have to be designed to run this way.
+
+For starters, you should not have any of your tests dependent on one another. If you rely on Test 1 to execute before Test 2, then these two tests cannot be run in parallel. So, be sure to design all of your tests to be independent. Any setup or cleanup should be isolated within the test.
+
+You’ll also want to avoid modifying test data that other tests may rely on. If Test 1 changes the value of a record and changes it back to its original value once completed, then there’s still a risk of Test 2 executing at the moment where the value has been changed. Therefore Test 2 fails. To mitigate this, any test that needs to change test data, should be the only test using that data.
+
+Thirdly, objects and variables that are used by multiple tests should be declared in a thread-safe manner, meaning they should not be global or static – as their values could change.
+#
+Clean coding
+
+While your automation project consists of test code, that doesn’t mean that you can throw caution to the wind and ignore clean coding practices. Remember, test automation is software development. It has to be extended and maintained, so it’s best to develop it in a matter that will support both.
+
+Avoid excessive code duplication, long classes and methods, inefficient waiting within tests, and other bad practices known as code smells. Instead, embrace approaches that enable code reusability and maintainability.
+#
+Design patterns
+
+Become familiar with design patterns that are especially beneficial for test automation projects such as:
+
+    Page Object Model
+    Screenplay
+    Fluent
+    Builder
+    Singleton
+    Factory
+    Facade
+
+You don't have to use all of these, in fact some are alternatives to each other, but being knowledgeable about them helps you know which ones are best for your test automation project.

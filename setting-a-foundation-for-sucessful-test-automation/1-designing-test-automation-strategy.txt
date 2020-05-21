@@ -1,0 +1,112 @@
+In this chapter, we’ll take a moment to consider:
+
+    What is your goal for starting a test automation initiative and what is it that you want to accomplish?
+    Who do you envision participating in your test automation initiative and in what capacity?
+    How do you plan for the execution of this strategy
+
+#
+What
+
+What is your goal for test automation?
+
+Is it to reduce the time that it takes to execute regression testing? Perhaps your team needs to release features faster. So, you want to reduce the manual effort it takes to run the regression tests, and allow your testers to focus on testing the new features.
+
+Or perhaps your goal is to reduce technical debt by closing your sprints with test automation in place for the new features? As your developers are creating new features and your testers are verifying them, there’s not much time for full-on regression testing. And closing the sprint without automating the newly identified tests only adds to that problem. So maybe you want to take care of this early on.
+
+Or perhaps your goal is to enable continuous testing as part of your build process? After checking in new features, your developers may want the confidence that what they’ve added isn’t compromising the overall quality of the application. Adding automated tests to your continuous integration pipeline can certainly help with this.
+
+The key here is to understand what it is you’re trying to accomplish. Before you begin any planning, take a moment to decide why it is that you need test automation.
+
+Make sure this goal is at the forefront of all of your decisions, because your subsequent actions in regards to test automation should be aimed toward this goal. Who you involve, the tools you use, which tests you automate, the execution strategy… all of this should be aligned with your goal.
+
+Communicate the goal to the entire team. Make sure everyone is aware of why the team is doing test automation and what it is you all wish to accomplish by it.
+
+I stress this because many teams jump into the implementation of test automation without taking a moment to consider why they are doing it. This leads to failed automation projects where teams are unprepared for the issues that present themselves and are unsatisfied with the return on their investment.
+#
+Who
+
+Who do you envision participating in your test automation initiative and in what capacity?
+
+Before answering this, let’s talk about the implications of automating the regression tests. You'll need someone to
+
+    write the test automation scripts
+    monitor the results every time the tests are run
+    update the tests when the behavior of the application changes
+
+These tasks can all be done by the same person or shared amongst the team. But let’s explore this.
+
+Ok, so who is going to write the test scripts?
+
+Let’s say you choose the developers. Because, hey, they already know how to code. Well, your developers are working on new features. Will they realistically have the time to work on scripting regression tests?
+
+Ok, let’s say you choose the manual testers as the ones to write the test scripts, because hey they are better at testing anyway. Let’s remember the problem we’re solving. You’re investing in test automation as a way to reduce the time and effort required for regression testing. Can you now spare the testers to not only test new features but also to spend time automating old tests?
+
+Here’s the hard truth: unless you are able to pull your developers or testers off of their current tasks of working on new features, or you’re able to provide them with the time and resources needed to do these tasks, these may not be your best options.
+
+Make no mistake, test automation is a software development project in and of itself. It takes a considerable amount of time and skill to do it. If you treat it as a side task that people only contribute to whenever they have time, it will fail.
+
+Even if you are able to find the time to allow your developer or tester to write the automated scripts, there’s still the tasks of monitoring them and updating them as needed.
+
+So what do you do? Well, you have a couple of options.
+
+Some companies assign someone to temporarily work on automating their regression backlog. However, this only works if you have another plan and strategy for future tests. Otherwise, the regression backlog will continuously grow as new features are developed, and you find yourself back at square 1.
+
+Another option is to assign someone to permanently work on your test automation. This becomes their full time job. And yes, in most cases, it is indeed a full time job. You can assign a developer or a tester to this role or have them work together as a pair, but be sure to account for the fact that either of these would have to invest in learning test automation. Yes, your developer knows how to code, but how familiar is she with testing and test automation? Your tester understands testing, but how familiar is he with development and test automation? Don’t get me wrong, this strategy can certainly work, but you must be realistic about the learning curve and time investment. And it also really helps if the person actually wants to do this work.
+
+Another great alternative is to employ a test automation engineer. This person is ideally skilled in testing as well as automation development. They can lead your test automation efforts and include the developers and testers in a more feasible capacity. If you go this route, it’s critical that you make this person a standard part of your team. Having them interact and collaborate with the rest of the team members will strengthen your test automation initiative.
+
+If none of these options seem possible, ask yourself if you’re viewing this as a side project? Are you willing and capable of investing what is required for this to succeed?
+#
+How
+
+Let’s say you’ve defined your strategy and you have an idea of who will lead the effort as well as how others will contribute. The final thing we’ll consider in this chapter is how do you plan for the execution of your defined strategy.
+
+Which tests should we automate?
+
+Let me offer a question to ponder. When your team was executing these tests manually, did they run all of them every time? Or did they make a strategic decision based on other factors, such as risk and value?
+
+You may think that since you're automating these tests, you might as well automate all of them but there is a cost that comes with automation. The time and maintenance required is not something to be taken lightly.
+
+What's the scenario?
+
+To automate tests, you need a clear understanding of the scenarios. Are the actions and expected results clearly defined?
+
+This may be covered via acceptance tests, Gherkin scenarios, or test cases. While verbal communication is wonderful, a written summary of expectations, even if light, is extremely helpful when writing test automation. The test script author’s mind is swapping from creation mode to verification mode as they are writing the test code. Having a guide to consult with to ensure nothing is missed is key.
+
+What about implementation?
+
+You’ll need to choose tooling for your automation project such as a programming language or codeless offering. Just as with your development projects, you’ll also want to develop standards and conventions, especially if you envision multiple people contributing to the automation project.
+
+We’ll explore considerations around these in Chapter 4 on Tooling.
+
+How will the tests be executed?
+
+Explore your thoughts on when and how these tests will be executed:
+
+    is it ok to have someone kick them off when needed and report back with the results?
+    or do you want them executed multiple times a day within their own CI job, where everyone has visibility into the results?
+    or do you want them integrated into your development’s CI job where they are executed any time someone checks in new code?
+
+Each one of these requires a certain level of trust and focused attention.
+
+Running the automated tests locally and reporting the results to the team requires manual intervention and therefore will indeed be slower, but the result reported to the team has already been triaged and can be trusted to be accurate.
+
+Running the tests multiple times a day in a CI job separate from development gives faster feedback, but the reported results have not been triaged. So, the tests themselves have to be written with a greater level of proficiency and care to ensure they are not flaky and can be trusted.
+
+And running the tests as part of development’s CI process requires fast and reliable tests that only fail with the application under test has provoked it to.
+
+I recommend gradually moving to these phases. Starting out with running locally or as part of a private CI build that is not exposed to others. This will allow you to learn more about what causes your tests to be flaky including quirks about your application.
+
+Once you find that you can trust your tests yourself, move to a separate CI job that is visible to everyone but doesn’t affect developer check-ins. This strengthens your trust in what you’ve written and also allows others to begin to trust it as well.
+
+Once you are very confident in the tests, only then should you gate your check-ins with them by adding them to the development CI process.
+#
+Triaging and maintaining automated tests
+
+It’s best to realize early on that your test failures will need to be triaged and maintained, and plan for this in your strategy. Again, an automation project is a software development project, and as the development of your product changes, so must your automation code. I cannot stress this enough. It’s not an optional task. Your automated tests will need to be triaged and maintained. Plan accordingly.
+
+The good news is that this is a great opportunity for others on the team to assist. As your developers run tests to verify that their new features didn’t break any of the existing ones, they can be responsible for triaging any failures. Ideally, any tests that fail will be due to their changes, and therefore they can fix their code or update the test to reflect the new expectations of the application. However, also be prepared for unrelated tests to fail as well. This will give developers insights into things that cause flaky tests and ways that they can improve the test automatability of the application.
+
+Manual testers are also a viable option for triaging automation failures. Especially, ones who have an interest in contributing to the automation code base. Reviewing test failures, debugging the automation code, and updating the code when needed are great introductory opportunities into test automation.
+
+While all developers and testers can certainly assist in the triaging and updating of test automation scripts, because it’s not their primary responsibility, there’s still a need for someone to monitor this consistently. Unmonitored tests are untrustworthy tests. As your team continues to lose trust in the automated tests, they tend to rely less on them, and the automation project eventually dies.
